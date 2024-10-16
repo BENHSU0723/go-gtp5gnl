@@ -1,4 +1,4 @@
-module github.com/free5gc/go-gtp5gnl
+module github.com/BENHSU0723/go-gtp5gnl
 
 go 1.17
 

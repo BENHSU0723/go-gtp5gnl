@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/free5gc/go-gtp5gnl"
+	"github.com/BENHSU0723/go-gtp5gnl"
 )
 
 // oid <- (seid ':' id) / id

@@ -77,12 +77,14 @@ const (
 	PDI_UE_ADDR_IPV4 = iota + 1
 	PDI_F_TEID
 	PDI_SDF_FILTER
+	PDI_Mulcst_ADDR_IPV4
 )
 
 type PDI struct {
-	UEAddr net.IP
-	FTEID  *FTEID
-	SDF    *SDFFilter
+	UEAddr     net.IP
+	FTEID      *FTEID
+	SDF        *SDFFilter
+	MulcstAddr net.IP
 }
 
 func DecodePDI(b []byte) (PDI, error) {
@@ -108,6 +110,10 @@ func DecodePDI(b []byte) (PDI, error) {
 				return pdi, err
 			}
 			pdi.SDF = &sdf
+		case PDI_Mulcst_ADDR_IPV4:
+			// TODO: support 2 kind of IPV4 and IPV6
+			pdi.MulcstAddr = make([]byte, 4)
+			copy(pdi.MulcstAddr, b[n:n+4])
 		}
 		b = b[hdr.Len.Align():]
 	}

@@ -7,7 +7,7 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/free5gc/go-gtp5gnl"
+	"github.com/BENHSU0723/go-gtp5gnl"
 	"github.com/khirono/go-nl"
 )
 
